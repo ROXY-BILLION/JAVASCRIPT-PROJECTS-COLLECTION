@@ -1,0 +1,257 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #080b16;
+    --surface: #111729;
+    --primary: #8b5cf6;
+    --secondary: #6366f1;
+    --text: #f8fafc;
+    --muted: #8993a9;
+    --border: rgba(255, 255, 255, 0.09);
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    overflow-x: hidden;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(ellipse at 15% 20%, rgba(99, 102, 241, 0.16), transparent 40%),
+        radial-gradient(ellipse at 85% 80%, rgba(139, 92, 246, 0.13), transparent 40%),
+        var(--background);
+}
+
+/* Background decoration */
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.25;
+    pointer-events: none;
+    animation: float 8s ease-in-out infinite alternate;
+}
+
+body::before {
+    top: 5%;
+    left: 5%;
+    background: #6366f1;
+}
+
+body::after {
+    right: 5%;
+    bottom: 5%;
+    background: #a855f7;
+    animation-delay: 2s;
+}
+
+/* Registration container */
+
+.container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 440px;
+    padding: 45px 38px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    background: rgba(17, 23, 41, 0.88);
+    backdrop-filter: blur(20px);
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.4),
+        0 0 50px rgba(99, 102, 241, 0.07);
+    animation: appear 0.7s ease both;
+}
+
+/* Top accent */
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 15%;
+    width: 70%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #818cf8,
+        #c084fc,
+        transparent
+    );
+}
+
+/* Heading */
+
+.container h1 {
+    margin-bottom: 32px;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -1.2px;
+    text-align: center;
+}
+
+.container h1::after {
+    content: "";
+    display: block;
+    width: 38px;
+    height: 4px;
+    margin: 12px auto 0;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #6366f1, #c084fc);
+}
+
+/* Form */
+
+#registrationForm {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+#registrationForm input {
+    width: 100%;
+    height: 56px;
+    padding: 0 17px;
+    outline: none;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.035);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.3s ease,
+                background 0.3s ease,
+                box-shadow 0.3s ease,
+                transform 0.3s ease;
+}
+
+#registrationForm input::placeholder {
+    color: #778198;
+}
+
+#registrationForm input:hover {
+    border-color: rgba(139, 92, 246, 0.4);
+}
+
+#registrationForm input:focus {
+    border-color: var(--primary);
+    background: rgba(139, 92, 246, 0.07);
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.12);
+    transform: translateY(-2px);
+}
+
+/* Register button */
+
+#registrationForm button {
+    position: relative;
+    height: 55px;
+    margin-top: 7px;
+    overflow: hidden;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(120deg, #6366f1, #8b5cf6, #a855f7);
+    color: white;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.25);
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease,
+                filter 0.3s ease;
+}
+
+#registrationForm button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 13px 30px rgba(139, 92, 246, 0.4);
+    filter: brightness(1.12);
+}
+
+#registrationForm button:active {
+    transform: scale(0.98);
+}
+
+/* Result message */
+
+#result {
+    margin-top: 20px;
+    color: #a78bfa;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* Animations */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes float {
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(35px, -35px);
+    }
+}
+
+/* Responsive design */
+
+@media (max-width: 480px) {
+    body {
+        padding: 18px;
+    }
+
+    .container {
+        padding: 38px 24px;
+        border-radius: 20px;
+    }
+
+    .container h1 {
+        font-size: 27px;
+    }
+
+    #registrationForm {
+        gap: 15px;
+    }
+
+    #registrationForm input {
+        height: 53px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
