@@ -1,0 +1,250 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Sans', sans-serif;
+    color: #202b26;
+    background: #edf0eb;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 430px;
+    height: 430px;
+    top: -200px;
+    right: -120px;
+    border: 1px solid rgba(39, 83, 61, 0.12);
+    border-radius: 50%;
+    box-shadow: 0 0 0 35px rgba(39, 83, 61, 0.025),
+                0 0 0 70px rgba(39, 83, 61, 0.02);
+    pointer-events: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 580px;
+    padding: 38px;
+    background: #ffffff;
+    border: 1px solid #dfe5dc;
+    border-radius: 12px;
+    box-shadow: 0 24px 65px rgba(34, 53, 42, 0.09);
+    position: relative;
+    z-index: 1;
+    animation: workspaceIn 0.65s ease both;
+}
+
+.container::before {
+    content: "STOCKROOM / INVENTORY";
+    display: block;
+    width: fit-content;
+    margin-bottom: 25px;
+    padding: 8px 11px;
+    color: #286344;
+    background: #edf6ef;
+    border: 1px solid #dcecdf;
+    border-radius: 4px;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+}
+
+h1 {
+    color: #1e3026;
+    font-size: clamp(26px, 5vw, 33px);
+    font-weight: 800;
+    letter-spacing: -1.2px;
+}
+
+h1::after {
+    content: "";
+    display: block;
+    width: 43px;
+    height: 3px;
+    margin-top: 15px;
+    background: #39845b;
+    border-radius: 5px;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 30px;
+}
+
+input {
+    width: 100%;
+    min-width: 0;
+    height: 53px;
+    padding: 0 15px;
+    color: #26352c;
+    background: #f7f9f6;
+    border: 1px solid #e0e7df;
+    border-radius: 6px;
+    outline: none;
+    font-family: inherit;
+    font-size: 12px;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+input::placeholder {
+    color: #929d94;
+}
+
+input:hover {
+    border-color: #a8c2ae;
+}
+
+input:focus {
+    background: #ffffff;
+    border-color: #39845b;
+    box-shadow: 0 0 0 3px rgba(57, 132, 91, 0.1);
+}
+
+#errorMessage {
+    grid-column: 1 / -1;
+    font-size: 12px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+#errorMessage:not(:empty) {
+    padding: 12px 14px;
+    color: #a83f3f;
+    background: #fff1ef;
+    border: 1px solid #f5d9d5;
+    border-left: 3px solid #d65c50;
+    border-radius: 5px;
+    animation: feedbackIn 0.3s ease;
+}
+
+button {
+    grid-column: 1 / -1;
+    width: 100%;
+    height: 54px;
+    color: #ffffff;
+    background: #286344;
+    border: none;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+button:hover {
+    background: #1d5035;
+    transform: translateY(-2px);
+    box-shadow: 0 9px 20px rgba(40, 99, 68, 0.18);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#productResult {
+    margin-top: 30px;
+    padding: 23px;
+    background: #f5f8f4;
+    border: 1px solid #e1e9df;
+    border-radius: 8px;
+    animation: feedbackIn 0.4s ease;
+}
+
+#productResult h2 {
+    margin-bottom: 19px;
+    padding-bottom: 14px;
+    color: #286344;
+    border-bottom: 1px solid #dfe8df;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+}
+
+#productResult p {
+    min-height: 22px;
+    margin-top: 10px;
+    color: #56645a;
+    font-size: 12px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+#productResult p:not(:empty) {
+    padding-left: 12px;
+    border-left: 2px solid #a4c5a9;
+}
+
+@keyframes workspaceIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes feedbackIn {
+    from {
+        opacity: 0;
+        transform: translateY(7px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 520px) {
+    body {
+        padding: 22px 14px;
+    }
+
+    .container {
+        padding: 28px 21px;
+    }
+
+    form {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    input,
+    #errorMessage,
+    button {
+        grid-column: 1;
+    }
+
+    #productResult {
+        padding: 18px;
+    }
+}
+
+@media (max-width: 350px) {
+    .container {
+        padding: 23px 16px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+}

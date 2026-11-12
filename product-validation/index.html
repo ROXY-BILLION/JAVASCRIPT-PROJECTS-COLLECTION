@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Validation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="container">
+
+        <h1>Add New Product</h1>
+
+        <form id="productForm">
+
+            <input
+                type="text"
+                id="productName"
+                placeholder="Enter product name"
+            >
+
+            <input
+                type="number"
+                id="price"
+                placeholder="Enter product price"
+            >
+
+            <input
+                type="number"
+                id="quantity"
+                placeholder="Enter product quantity"
+            >
+
+            <p id="errorMessage"></p>
+
+            <button type="submit">Add Product</button>
+
+        </form>
+
+        <section id="productResult">
+
+            <h2>Product Information</h2>
+
+            <p id="displayName"></p>
+
+            <p id="displayPrice"></p>
+
+            <p id="displayQuantity"></p>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
