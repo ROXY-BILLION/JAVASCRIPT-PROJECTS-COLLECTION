@@ -1,0 +1,235 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    padding: 50px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Sans', sans-serif;
+    color: #292321;
+    background: #f4f0e9;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 420px;
+    height: 420px;
+    border: 1px solid rgba(112, 35, 51, 0.12);
+    border-radius: 50%;
+    top: -180px;
+    right: -130px;
+    pointer-events: none;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 280px;
+    height: 280px;
+    border: 1px solid rgba(112, 35, 51, 0.12);
+    border-radius: 50%;
+    bottom: -130px;
+    left: -100px;
+    pointer-events: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 680px;
+    padding: 45px;
+    background: #fffdf9;
+    border: 1px solid #e9e1d6;
+    border-radius: 8px;
+    box-shadow: 0 25px 70px rgba(53, 37, 30, 0.09);
+    position: relative;
+    z-index: 1;
+    animation: appear 0.7s ease both;
+}
+
+.container::before {
+    content: "CAMPUS / ADMISSIONS";
+    display: block;
+    width: fit-content;
+    margin-bottom: 25px;
+    padding: 8px 12px;
+    color: #762d3d;
+    background: #f5e9e9;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+h1 {
+    margin-bottom: 10px;
+    color: #762d3d;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 5vw, 39px);
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+h1::after {
+    content: "";
+    display: block;
+    width: 55px;
+    height: 3px;
+    margin-top: 17px;
+    background: #c49b58;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 17px;
+    margin-top: 30px;
+}
+
+input {
+    width: 100%;
+    min-width: 0;
+    height: 54px;
+    padding: 0 16px;
+    color: #292321;
+    background: #faf8f4;
+    border: 1px solid #e5ddd2;
+    border-radius: 4px;
+    outline: none;
+    font-family: inherit;
+    font-size: 13px;
+    transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+input::placeholder {
+    color: #9c9389;
+}
+
+input:hover {
+    border-color: #c8ad91;
+}
+
+input:focus {
+    background: #ffffff;
+    border-color: #762d3d;
+    box-shadow: 0 0 0 3px rgba(118, 45, 61, 0.09);
+}
+
+input[type="password"] {
+    letter-spacing: 1px;
+}
+
+#errorMessage,
+#successMessage {
+    grid-column: 1 / -1;
+    font-size: 12px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+#errorMessage:not(:empty) {
+    padding: 13px 15px;
+    color: #a52e38;
+    background: #fff0ef;
+    border-left: 3px solid #bd4650;
+    animation: messageIn 0.3s ease;
+}
+
+button {
+    grid-column: 1 / -1;
+    height: 55px;
+    margin-top: 5px;
+    color: #fffdf9;
+    background: #762d3d;
+    border: none;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+button:hover {
+    background: #5e202f;
+    transform: translateY(-2px);
+    box-shadow: 0 9px 20px rgba(118, 45, 61, 0.2);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#successMessage:not(:empty) {
+    margin-top: 18px;
+    padding: 14px 16px;
+    color: #286343;
+    background: #edf7ef;
+    border-left: 3px solid #43865b;
+    animation: messageIn 0.3s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes messageIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 25px 15px;
+    }
+
+    .container {
+        padding: 30px 22px;
+    }
+
+    form {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    input,
+    button,
+    #errorMessage,
+    #successMessage {
+        grid-column: 1;
+    }
+}
+
+@media (max-width: 360px) {
+    .container {
+        padding: 25px 17px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+}

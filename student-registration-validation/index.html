@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Validation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="container">
+
+        <h1>Student Registration</h1>
+
+        <form id="studentForm">
+
+            <input
+                type="text"
+                id="fullName"
+                placeholder="Enter full name"
+            >
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter email address"
+            >
+
+            <input
+                type="text"
+                id="matricNumber"
+                placeholder="Enter matric number"
+            >
+
+            <input
+                type="text"
+                id="department"
+                placeholder="Enter department"
+            >
+
+            <input
+                type="number"
+                id="level"
+                placeholder="Enter academic level"
+            >
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Create password"
+            >
+
+            <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm password"
+            >
+
+            <p id="errorMessage"></p>
+
+            <button type="submit">Register Student</button>
+
+        </form>
+
+        <p id="successMessage"></p>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
