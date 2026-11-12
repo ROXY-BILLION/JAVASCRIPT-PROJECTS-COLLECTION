@@ -1,0 +1,271 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #eef1f6;
+    --surface: #ffffff;
+    --primary: #3867f4;
+    --primary-dark: #244ed0;
+    --text: #172033;
+    --muted: #8490a4;
+    --border: #e5e9f0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 55px 20px;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(circle at 90% 10%, #dce6ff, transparent 30%),
+        radial-gradient(circle at 5% 90%, #e1e9fa, transparent 30%),
+        var(--background);
+}
+
+/* Main workspace */
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 760px;
+    padding: 48px 52px;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 18px;
+    background: var(--surface);
+    box-shadow: 0 25px 70px rgba(35, 51, 86, 0.09);
+    animation: workspaceReveal 0.7s ease both;
+}
+
+/* Top decorative accent */
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 52px;
+    width: 65px;
+    height: 4px;
+    border-radius: 0 0 6px 6px;
+    background: var(--primary);
+}
+
+/* Heading */
+
+.container h1 {
+    margin-bottom: 35px;
+    font-size: 29px;
+    font-weight: 800;
+    letter-spacing: -1.2px;
+}
+
+.container h1::after {
+    content: "PRODUCT INVENTORY / NEW ENTRY";
+    display: block;
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* Form grid */
+
+#productForm {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+/* Input styling */
+
+#productForm input,
+#productForm textarea {
+    width: 100%;
+    min-width: 0;
+    outline: none;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #f8f9fc;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 13px;
+    transition: border-color 0.3s ease,
+                background 0.3s ease,
+                box-shadow 0.3s ease,
+                transform 0.3s ease;
+}
+
+#productForm input {
+    height: 55px;
+    padding: 0 17px;
+}
+
+#productForm textarea {
+    grid-column: 1 / -1;
+    min-height: 145px;
+    padding: 17px;
+    resize: vertical;
+    line-height: 1.7;
+}
+
+#productForm input::placeholder,
+#productForm textarea::placeholder {
+    color: #a0a9b8;
+}
+
+/* Focus interactions */
+
+#productForm input:hover,
+#productForm textarea:hover {
+    border-color: #b8c8f5;
+}
+
+#productForm input:focus,
+#productForm textarea:focus {
+    border-color: var(--primary);
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(56, 103, 244, 0.09);
+    transform: translateY(-2px);
+}
+
+/* Submit button */
+
+#productForm button {
+    grid-column: 1 / -1;
+    width: 100%;
+    height: 57px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 9px;
+    background: #172033;
+    color: white;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s ease,
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+#productForm button::after {
+    content: "↗";
+    font-size: 19px;
+    transition: transform 0.3s ease;
+}
+
+#productForm button:hover {
+    background: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(56, 103, 244, 0.2);
+}
+
+#productForm button:hover::after {
+    transform: translate(3px, -3px);
+}
+
+#productForm button:active {
+    transform: scale(0.98);
+}
+
+/* Result message */
+
+#result {
+    margin-top: 20px;
+    color: var(--primary-dark);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* Workspace entrance */
+
+@keyframes workspaceReveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Tablet */
+
+@media (max-width: 650px) {
+    .container {
+        max-width: 550px;
+        padding: 40px 32px;
+    }
+
+    .container::before {
+        left: 32px;
+    }
+
+    .container h1 {
+        font-size: 26px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+    body {
+        padding: 20px 14px;
+    }
+
+    .container {
+        padding: 35px 22px;
+        border-radius: 14px;
+    }
+
+    .container::before {
+        left: 22px;
+    }
+
+    .container h1 {
+        font-size: 24px;
+        margin-bottom: 28px;
+    }
+
+    #productForm {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    #productForm input {
+        height: 53px;
+    }
+
+    #productForm textarea,
+    #productForm button {
+        grid-column: 1;
+    }
+
+    #productForm textarea {
+        min-height: 125px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
