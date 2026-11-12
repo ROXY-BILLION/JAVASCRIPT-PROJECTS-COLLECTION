@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="container">
+
+        <section class="contact-info">
+            <span class="eyebrow">GET IN TOUCH</span>
+
+            <h1>Let's start a conversation<span>.</span></h1>
+
+            <p class="description">
+                Have a project in mind or just want to say hello?
+                We'd love to hear from you.
+            </p>
+
+            <div class="info-details">
+                <div class="info-item">
+                    <span>EMAIL US</span>
+                    <p>hello@example.com</p>
+                </div>
+
+                <div class="info-item">
+                    <span>CALL US</span>
+                    <p>+234 800 000 0000</p>
+                </div>
+            </div>
+
+            <div class="contact-footer">
+                WE'RE ALWAYS OPEN TO NEW IDEAS.
+            </div>
+        </section>
+
+        <section class="form-section">
+
+            <div class="form-heading">
+                <span>01 / CONTACT FORM</span>
+                <h2>Send us a message</h2>
+            </div>
+
+            <form id="contactForm">
+
+                <div class="input-group">
+                    <label for="name">Your name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="John Doe"
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email address</label>
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="john@example.com"
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label for="subject">Subject</label>
+                    <input
+                        type="text"
+                        id="subject"
+                        placeholder="What is this about?"
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label for="message">Your message</label>
+                    <textarea
+                        id="message"
+                        placeholder="Tell us about your project..."
+                        rows="5"
+                    ></textarea>
+                </div>
+
+                <button type="submit">
+                    Send Message <span>↗</span>
+                </button>
+
+            </form>
+
+            <p id="result"></p>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
