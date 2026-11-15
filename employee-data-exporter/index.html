@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Data Exporter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="container">
+
+        <h1>Employee Data Exporter</h1>
+
+        <form id="employeeForm">
+
+            <input
+                type="text"
+                id="employeeName"
+                placeholder="Enter employee name"
+            >
+
+            <input
+                type="text"
+                id="employeeId"
+                placeholder="Enter employee ID"
+            >
+
+            <input
+                type="text"
+                id="department"
+                placeholder="Enter department"
+            >
+
+            <p id="errorMessage"></p>
+
+            <button type="submit">Export Employee Data</button>
+
+        </form>
+
+        <section id="jsonResult">
+
+            <h2>Employee JSON Output</h2>
+
+            <pre id="jsonOutput"></pre>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

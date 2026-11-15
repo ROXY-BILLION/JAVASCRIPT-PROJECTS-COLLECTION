@@ -1,0 +1,255 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    padding: 45px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Sans', sans-serif;
+    color: #202b42;
+    background: #edf1f8;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 480px;
+    height: 480px;
+    top: -240px;
+    right: -130px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(80, 112, 220, 0.14), transparent 70%);
+    pointer-events: none;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    bottom: -220px;
+    left: -130px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(77, 151, 213, 0.12), transparent 70%);
+    pointer-events: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 620px;
+    padding: 40px;
+    background: #ffffff;
+    border: 1px solid #e0e6f0;
+    border-radius: 13px;
+    box-shadow: 0 25px 70px rgba(34, 52, 91, 0.1);
+    position: relative;
+    z-index: 1;
+    animation: dashboardIn 0.65s ease both;
+}
+
+.container::before {
+    content: "NEXUS / PEOPLE OPERATIONS";
+    display: block;
+    width: fit-content;
+    margin-bottom: 24px;
+    padding: 8px 11px;
+    color: #405bb4;
+    background: #edf1ff;
+    border: 1px solid #e0e7ff;
+    border-radius: 5px;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+h1 {
+    color: #1d2b49;
+    font-size: clamp(26px, 5vw, 34px);
+    font-weight: 800;
+    letter-spacing: -1.3px;
+}
+
+h1::after {
+    content: "";
+    display: block;
+    width: 44px;
+    height: 3px;
+    margin-top: 16px;
+    background: #5575db;
+    border-radius: 5px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+input {
+    width: 100%;
+    height: 54px;
+    padding: 0 16px;
+    color: #263550;
+    background: #f7f9fd;
+    border: 1px solid #e0e6f0;
+    border-radius: 7px;
+    outline: none;
+    font-family: inherit;
+    font-size: 13px;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+input::placeholder {
+    color: #98a3b7;
+}
+
+input:hover {
+    border-color: #aab9e4;
+}
+
+input:focus {
+    background: #ffffff;
+    border-color: #5575db;
+    box-shadow: 0 0 0 3px rgba(85, 117, 219, 0.11);
+}
+
+#errorMessage {
+    font-size: 12px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+#errorMessage:not(:empty) {
+    padding: 12px 14px;
+    color: #b13d4b;
+    background: #fff1f2;
+    border: 1px solid #f6dadd;
+    border-left: 3px solid #d65363;
+    border-radius: 5px;
+    animation: outputIn 0.3s ease;
+}
+
+button {
+    width: 100%;
+    min-height: 55px;
+    margin-top: 3px;
+    padding: 12px 18px;
+    color: #ffffff;
+    background: #405bb4;
+    border: none;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+button:hover {
+    background: #304a9c;
+    transform: translateY(-2px);
+    box-shadow: 0 9px 22px rgba(64, 91, 180, 0.2);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#jsonResult {
+    margin-top: 30px;
+    overflow: hidden;
+    background: #111b2e;
+    border: 1px solid #263653;
+    border-radius: 9px;
+    animation: outputIn 0.4s ease;
+}
+
+#jsonResult h2 {
+    padding: 17px 19px;
+    color: #e4ebfa;
+    background: #1a2942;
+    border-bottom: 1px solid #2b3b57;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+}
+
+#jsonOutput {
+    min-height: 95px;
+    padding: 20px;
+    color: #a9d9ff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    line-height: 1.9;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    overflow-x: auto;
+}
+
+#jsonOutput:empty::before {
+    content: "Your exported employee data will appear here...";
+    color: #73839f;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-style: italic;
+}
+
+@keyframes dashboardIn {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes outputIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 520px) {
+    body {
+        padding: 22px 14px;
+    }
+
+    .container {
+        padding: 28px 21px;
+    }
+
+    #jsonOutput {
+        padding: 16px;
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 350px) {
+    .container {
+        padding: 23px 16px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+}
