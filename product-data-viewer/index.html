@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Data Viewer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="container">
+
+        <h1>Product Data Viewer</h1>
+
+        <form id="productForm">
+
+            <textarea
+                id="jsonInput"
+                placeholder='Enter product JSON here...'
+                rows="8"
+            ></textarea>
+
+            <p id="errorMessage"></p>
+
+            <button type="submit" id="convertButton">
+                Convert Product Data
+            </button>
+
+        </form>
+
+        <section id="productResult">
+
+            <h2>Product Information</h2>
+
+            <p id="productName"></p>
+
+            <p id="productPrice"></p>
+
+            <p id="productQuantity"></p>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

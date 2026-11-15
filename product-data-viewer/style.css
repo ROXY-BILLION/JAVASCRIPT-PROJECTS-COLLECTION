@@ -1,0 +1,257 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    padding: 45px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Sans', sans-serif;
+    color: #e9e9f5;
+    background: #10101b;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 480px;
+    height: 480px;
+    top: -230px;
+    right: -130px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.17), transparent 70%);
+    pointer-events: none;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    bottom: -200px;
+    left: -150px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.12), transparent 70%);
+    pointer-events: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 650px;
+    padding: 38px;
+    background: #191927;
+    border: 1px solid #303047;
+    border-radius: 13px;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.35);
+    position: relative;
+    z-index: 1;
+    animation: workspaceIn 0.7s ease both;
+}
+
+.container::before {
+    content: "PRISM / JSON INSPECTOR";
+    display: block;
+    width: fit-content;
+    margin-bottom: 24px;
+    padding: 8px 11px;
+    color: #bba4ff;
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 4px;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+}
+
+h1 {
+    color: #f5f3ff;
+    font-size: clamp(27px, 5vw, 35px);
+    font-weight: 800;
+    letter-spacing: -1.2px;
+}
+
+h1::after {
+    content: "";
+    display: block;
+    width: 45px;
+    height: 3px;
+    margin-top: 15px;
+    background: #a78bfa;
+    border-radius: 5px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 30px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 175px;
+    padding: 20px;
+    color: #c8c6e4;
+    background: #10101b;
+    border: 1px solid #34344d;
+    border-radius: 8px;
+    outline: none;
+    resize: vertical;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    line-height: 1.9;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+textarea::placeholder {
+    color: #73718e;
+}
+
+textarea:hover {
+    border-color: #61528c;
+}
+
+textarea:focus {
+    border-color: #a78bfa;
+    box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.1);
+}
+
+#errorMessage {
+    font-size: 12px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+#errorMessage:not(:empty) {
+    padding: 12px 15px;
+    color: #ff9baf;
+    background: rgba(255, 80, 115, 0.09);
+    border: 1px solid rgba(255, 80, 115, 0.18);
+    border-left: 3px solid #fb7185;
+    border-radius: 5px;
+    animation: feedbackIn 0.3s ease;
+}
+
+button {
+    width: 100%;
+    height: 54px;
+    color: #171326;
+    background: #b49aff;
+    border: none;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+button:hover {
+    background: #c6b4ff;
+    transform: translateY(-2px);
+    box-shadow: 0 9px 25px rgba(167, 139, 250, 0.2);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#productResult {
+    margin-top: 30px;
+    padding: 23px;
+    background: #131321;
+    border: 1px solid #303047;
+    border-radius: 9px;
+    animation: feedbackIn 0.4s ease;
+}
+
+#productResult h2 {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    color: #c4b5fd;
+    border-bottom: 1px solid #303047;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+}
+
+#productResult p {
+    min-height: 22px;
+    margin-top: 13px;
+    padding: 12px 14px;
+    color: #b7b5cc;
+    background: #1c1c2d;
+    border: 1px solid #303047;
+    border-radius: 5px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+#productResult p:not(:empty) {
+    border-left: 3px solid #8b5cf6;
+}
+
+@keyframes workspaceIn {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes feedbackIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 520px) {
+    body {
+        padding: 22px 14px;
+    }
+
+    .container {
+        padding: 27px 20px;
+    }
+
+    textarea {
+        min-height: 155px;
+        padding: 15px;
+        font-size: 11px;
+    }
+
+    #productResult {
+        padding: 17px;
+    }
+}
+
+@media (max-width: 350px) {
+    .container {
+        padding: 23px 16px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+}
