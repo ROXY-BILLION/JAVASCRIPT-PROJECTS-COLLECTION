@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temporary Login Session</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <main class="container">
+
+        <section id="loginSection">
+            <h1>Welcome Back</h1>
+            <p>Enter your username to continue.</p>
+
+            <input
+                type="text"
+                id="usernameInput"
+                placeholder="Enter username"
+            >
+
+            <button id="loginBtn">Login</button>
+        </section>
+
+        <section id="dashboardSection" hidden>
+            <h1 id="welcomeMessage"></h1>
+            <p>You are successfully logged in.</p>
+
+            <button id="logoutBtn">Logout</button>
+        </section>
+
+    </main>
+
+</body>
+</html>
