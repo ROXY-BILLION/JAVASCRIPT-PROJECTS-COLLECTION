@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Watchlist</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="container">
+
+        <header>
+            <span class="subtitle">YOUR PERSONAL CINEMA</span>
+            <h1>Movie Watchlist</h1>
+            <p>Keep track of the movies you want to watch.</p>
+        </header>
+
+        <section class="movie-form" id="movieform">
+            <input
+                type="text"
+                id="movieInput"
+                placeholder="Enter movie title..."
+            >
+
+            <button id="addMovieBtn">Add Movie +</button>
+        </section>
+
+        <section class="watchlist-section">
+            <h2>My Watchlist</h2>
+
+            <ul id="movieList">
+            </ul>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
